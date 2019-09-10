@@ -7,13 +7,14 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form method="" action="{{ route('register.member') }}">
+        <form enctype="multipart/form-data" method="post" action="{{ route('register.member') }}">
+            @csrf
             <div class="row">
                 <div class="col-md-6">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="first_name">First name</label>
-                            <input type="text" class="form-control" id="first_name" placeholder="First name">
+                            <input type="text" name="first_name" class="form-control" id="first_name" placeholder="First name">
                         </div>
                     </div>
                 </div>
@@ -21,7 +22,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="last_name">Last name</label>
-                            <input type="text" class="form-control" id="last_name" placeholder="Last name">
+                            <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Last name">
                         </div>
                     </div>
                 </div>
@@ -29,7 +30,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="id_number">ID</label>
-                            <input type="text" class="form-control" id="id_number" placeholder="id number">
+                            <input type="text" name="id_number" class="form-control" id="id_number" placeholder="id number">
                         </div>
                     </div>
                 </div>
@@ -38,7 +39,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="password">password</label>
-                            <input type="password" class="form-control" id="password" placeholder="password">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="password">
                         </div>
                     </div>
                 </div>
@@ -46,8 +47,8 @@
                 <div class="col-md-6">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="password">phone</label>
-                            <input type="phone" class="form-control" id="phone" placeholder="phone">
+                            <label for="phone">phone</label>
+                            <input type="phone" name="phone" class="form-control" id="phone" placeholder="phone">
                         </div>
                     </div>
                 </div>
@@ -55,8 +56,8 @@
                 <div class="col-md-6">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="exampleInputFile">Photo</label>
-                            <input type="file" id="exampleInputFile">
+                            <label for="photo">Photo</label>
+                            <input type="file" id="photo" name="photo">
                             <p class="help-block">Upload member photo.</p>
                         </div>
                     </div>
