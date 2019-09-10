@@ -12,8 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('add-member');
 });
+
+Route::get('add-member', [
+    'uses'=>'UserController@index',
+    'as'=>'add.member'
+]);
+Route::post('register-member',[
+   'uses'=>'UserController@registerMember',
+   'as'=>'register.member'
+]);
 
 Auth::routes();
 

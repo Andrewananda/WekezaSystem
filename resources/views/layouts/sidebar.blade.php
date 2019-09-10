@@ -39,7 +39,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/charts/chartjs.html"><i class="fa fa-users"></i> Add Member</a></li>
+                    <li><a href="{{route('add.member')}}"><i class="fa fa-users"></i> Add Member</a></li>
                     <li><a href="pages/charts/morris.html"><i class="fa fa-list"></i> View Members</a></li>
                 </ul>
             </li>
@@ -56,6 +56,21 @@
                     <li><a href="pages/UI/icons.html"><i class="fa fa-bookmark"></i> All Projects</a></li>
                 </ul>
             </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-bookmark"></i>
+                    <span>Manage Permissions</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="pages/UI/general.html"><i class="fa fa-book"></i> Give Permissions</a></li>
+                    <li><a href="pages/UI/icons.html"><i class="fa fa-bookmark"></i> All Permission</a></li>
+                </ul>
+            </li>
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-users"></i> <span>Manage Members</span>
