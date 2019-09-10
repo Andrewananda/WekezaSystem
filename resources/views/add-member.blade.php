@@ -52,6 +52,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" class="form-control" id="username" placeholder="username">
+                        </div>
+                    </div>
+                </div>
 
                 <div class="col-md-6">
                     <div class="box-body">

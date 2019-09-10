@@ -12,14 +12,14 @@ class UserController extends Controller
     }
     public function registerMember(Request $request) {
 
-//        $validate = $request->validate([
-//            'first_name'=>'required',
-//            'last_name'=>'required',
-//            'password'=>'required'
-//        ]);
-//        if (!$validate) {
-//            return redirect()->back()->with(['message'=>'fill all the inputs']);
-//        } else
+        $validate = $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'password'=>'required'
+        ]);
+        if (!$validate) {
+            return redirect()->back()->with(['message'=>'fill all the inputs']);
+        } else
 
         if ($request->hasFile('photo')) {
             $filenameWithExt = $request->file('photo')->getClientOriginalName();
@@ -30,7 +30,7 @@ class UserController extends Controller
         }
         $user = new User();
         $user->name = $request['first_name'] ." " . $request['last_name'];
-        //$user->email = $request['email'];
+        $user->username = $request['username'];
         $user->id_number = $request['id_number'];
         $user->phone = $request['phone'];
         $user->password = bcrypt($request['password']);
