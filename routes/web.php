@@ -12,9 +12,9 @@
 */
 
 
-Route::get('/', function () {
-    return view('add-member');
-});
+
+Route::get('/', 'HomeController@index')->name('home');
+
 
 Route::get('/add-member', [
     'uses'=>'UserController@index',
