@@ -1,74 +1,105 @@
 <!DOCTYPE html>
-<html>
+<!--[if IE 9]>         <html class="no-js lt-ie10" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="{{ asset('assets/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('assets/bower_components/font-awesome/css/font-awesome.min.css')}}">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="{{ asset('assets/bower_components/Ionicons/css/ionicons.min.css')}}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('assets/dist/css/AdminLTE.min.css')}}">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="{{ asset('assets/"plugins/iCheck/square/blue.css')}}">
 
+    <title>ProUI - Responsive Bootstrap Admin Template</title>
 
+    <meta name="description" content="ProUI is a Responsive Bootstrap Admin Template created by pixelcave and published on Themeforest.">
+    <meta name="author" content="pixelcave">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
 
-    <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="{{ asset('assets/login/img/favicon.png')}}">
+    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon57.png')}}" sizes="57x57">
+    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon72.png')}}" sizes="72x72">
+    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon76.png')}}" sizes="76x76">
+    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon114.png')}}" sizes="114x114">
+    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon120.png')}}" sizes="120x120">
+    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon144.png')}}" sizes="144x144">
+    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon152.png')}}" sizes="152x152">
+    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon180.png')}}" sizes="180x180">
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Bootstrap is included in its original form, unaltered -->
+    <link rel="stylesheet" href="{{ asset('assets/login//bootstrap.min.css')}}">
+
+    <!-- Related styles of various icon packs and plugins -->
+    <link rel="stylesheet" href="{{ asset('assets/login/css/plugins.css')}}">
+
+    <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+    <link rel="stylesheet" href="{{ asset('assets/login/css/main.css')}}">
+
+    <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
+
+    <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+    <link rel="stylesheet" href="{{ asset('assets/login/css/themes.css')}}">
+    <!-- END Stylesheets -->
+
+    <!-- Modernizr (browser feature detection library) -->
+    <script src="{{ asset('assets/login/js/vendor/modernizr.min.js')}}"></script>
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-    <div class="login-logo">
-        <a ><b>Log</b>in</a>
-    </div>
-    <!-- /.login-logo -->
-    <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
-
-        <form action="{{ route('login') }}" method="post">
-            @csrf
-            <div class="form-group has-feedback">
-                <input type="text" name="username" class="form-control" placeholder="Username">
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <input type="password" name="password" class="form-control" placeholder="Password">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <div class="row">
-                <!-- /.col -->
-                <div class="col-md-6">
-                    <button type="submit" class="btn btn-primary btn btn-flat">Sign In</button>
-                </div>
-                <!-- /.col -->
-            </div>
-        </form>
-
-    </div>
-    <!-- /.login-box-body -->
+<body>
+<!-- Login Background -->
+<div id="login-background">
+    <!-- For best results use an image with a resolution of 2560x400 pixels (prefer a blurred image for smaller file size) -->
+    <img src="{{ asset('assets/login/img/placeholders/headers/login_header.jpg')}}" alt="Login Background" class="animation-pulseSlow">
 </div>
-<!-- /.login-box -->
+<!-- END Login Background -->
 
-<!-- jQuery 3 -->
-<script src="{{ asset('assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="{{ asset('assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}'"></script>
-<!-- iCheck -->
-<script src="{{ asset('assets/plugins/iCheck/icheck.min.js')}}"></script>
-<script>
-    $(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%' /* optional */
-        });
-    });
-</script>
+<!-- Login Container -->
+<div id="login-container" class="animation-fadeIn">
+    <!-- Login Title -->
+    <div class="login-title text-center">
+        <h1><i class="gi gi-flash"></i> <strong>Wekeza</strong><br><small> <strong>Login</strong> or <strong>Register</strong></small></h1>
+    </div>
+    <!-- END Login Title -->
+
+    <!-- Login Block -->
+    <div class="block push-bit">
+        <!-- Login Form -->
+        <form action="{{ route('login') }}" method="post"  class="form-horizontal form-bordered form-control-borderless">
+            @csrf
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="input-group">
+                        <span class="inp ut-group-addon"><i class="gi gi-envelope"></i></span>
+                        <input type="text" id="username" name="username" class="form-control input-lg" placeholder="Username">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="input-group">
+                        <span class="inp ut-group-addon"><i class="gi gi-lock"></i></span>
+                        <input type="password" id="password" name="password" class="form-control input-lg" placeholder="password">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group form-actions">
+                <div class="col-xs-8 text-right">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </form>
+        <!-- END Login Form -->
+    </div>
+</div>
+
+
+<!-- jQuery, Bootstrap.js, jQuery plugins and Custom JS code -->
+<script src="{{ asset('assets/login/js/vendor/jquery.min.js')}}"></script>
+<script src="{{ asset('assets/login/js/vendor/bootstrap.min.js')}}"></script>
+<script src="{{ asset('assets/login/js/plugins.js')}}"></script>
+<script src="{{ asset('assets/login/js/app.js')}}"></script>
+
+<!-- Load and execute javascript code used only in this page -->
+<script src="{{ asset('assets/login/js/pages/login.js')}}"></script>
+<script>$(function(){ Login.init(); });</script>
 </body>
 </html>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -76,6 +77,12 @@ class UserController extends Controller
         //$user->photo = $request['photo'];
         $user->update();
         return redirect()->route('all.members')->with(['message'=>'Updated Successfully']);
+    }
+
+    public function logout() {
+        $user = Auth::user();
+        Auth::logout($user);
+        return redirect()->route('login');
     }
 
 }

@@ -38,5 +38,9 @@ Route::post('/update-member/{id}',[
 ]);
 
 Auth::routes();
+Route::get('/logout',[
+    'uses'=>'UserController@logout',
+    'as'=>'logout'
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
