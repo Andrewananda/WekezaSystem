@@ -32,6 +32,10 @@ Route::get('/edit-member/{id}',[
     'uses'=>'UserController@editMember',
     'as'=>'edit.member'
 ]);
+Route::post('/update-member/{id}',[
+   'uses'=>'UserController@updateMember',
+   'as'=>'update.member'
+]);
 
 Auth::routes();
 

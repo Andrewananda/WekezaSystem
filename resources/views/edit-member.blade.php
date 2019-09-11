@@ -7,14 +7,14 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form enctype="multipart/form-data" method="post" action="{{ route('register.member') }}">
+        <form enctype="multipart/form-data" method="post" action="{{ route('update.member',['id'=>$user->id]) }}">
             @csrf
             <div class="row">
                 <div class="col-md-6">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="first_name">Name</label>
-                            <input type="text" name="first_name" value="{{ $user->name }}" class="form-control" id="first_name" placeholder="First name">
+                            <input type="text" name="name" value="{{ $user->name }}" class="form-control" id="first_name" placeholder="First name">
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                             <label for="photo">Photo</label>
                             <img src="{{ $user->photo }}" height="100px" alt="">
                             <input type="file" id="photo" name="photo">
-                            <p class="help-block">Upload member photo.</p>
+                            <p class="help-block">Update member photo.</p>
                         </div>
                     </div>
                 </div>

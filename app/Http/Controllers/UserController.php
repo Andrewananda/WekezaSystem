@@ -50,4 +50,32 @@ class UserController extends Controller
         return view('edit-member',['user'=>$user]);
     }
 
+    public function updateMember(Request $request, $id) {
+        if ($request->hasFile('photo')) {
+            $filenameWithExt = $request->file('photo')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            $filenameToStore = $filename . '_' . time() . '.'  . $extension;
+            $request->file('photo')->storeAs('public/member_identity',$filenameToStore);
+            $base_url = "http://localhost/WekezaCousins/storage/app/public/member_identity/";
+
+            $user = User::where('id',$id)->first();
+            $user->name = $request['first_name'];
+            $user->username = $request['username'];
+            $user->id_number = $request['id_number'];
+            $user->phone = $request['phone'];
+            $user->photo = $base_url . $filenameToStore;
+            $user->save();
+        }
+
+        $user = User::where('id',$id)->first();
+        $user->name = $request['name'];
+        $user->username = $request['username'];
+        $user->id_number = $request['id_number'];
+        $user->phone = $request['phone'];
+        //$user->photo = $request['photo'];
+        $user->update();
+        return redirect()->route('all.members')->with(['message'=>'Updated Successfully']);
+    }
+
 }
