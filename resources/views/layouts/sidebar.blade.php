@@ -40,7 +40,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('add.member')}}"><i class="fa fa-users"></i> Add Member</a></li>
-                    <li><a href="pages/charts/morris.html"><i class="fa fa-list"></i> View Members</a></li>
+                    <li><a href="{{route('all.members')}}"><i class="fa fa-list"></i> View Members</a></li>
                 </ul>
             </li>
             <li class="treeview">
