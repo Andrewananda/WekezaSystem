@@ -81,7 +81,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> Remove Member</a></li>
-                    <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Punish Member</a></li>
+                    <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Assign Penalty To Member</a></li>
                     <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> All Punished Members</a></li>
                 </ul>
             </li>
