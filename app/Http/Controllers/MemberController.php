@@ -24,5 +24,15 @@ class MemberController extends Controller
         $user->givePermissionTo($permission);
         return "Updated";
     }
+    public function addPermission($id) {
+        $role = Role::where('id',2)->with(['permissions'])->first();
+        if (!$role)
+        {
+            abort(404);
+        }
+        $permissions = Permission::all();
+        $perms = $role->permissions->pluck('id')->all();
+        return view('member-role',['role'=>$role, 'permissions'=>$permissions, 'perms'=>$perms]);
+    }
 
 }

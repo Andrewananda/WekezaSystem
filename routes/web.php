@@ -41,9 +41,13 @@ Route::get('/user-permission',[
    'uses'=>'MemberController@userPermission',
    'as'=>'member.permission'
 ]);
-Route::get('/permission',[
+Route::get('/permission/{id}',[
     'uses'=>'MemberController@createRole',
     'as'=>'role'
+]);
+Route::get('/add-permission/{id}',[
+    'uses'=>'MemberController@addPermission',
+    'as'=>'add.permission'
 ]);
 
 

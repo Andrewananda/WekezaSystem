@@ -15,8 +15,8 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Username</th>
-                                <th>Phone</th>
-                                <th>Photo</th>
+                                <th>Role</th>
+                                <th>Permissions</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -31,9 +31,9 @@
                                         @endforeach
                                     </td>
                                     <td>
-                                        <img src="{{ $user->photo }}" height="100px" alt="">
+                                        {{ count($user->permissions) }}
                                     </td>
-                                    <td><a href="{{ route('edit.member',['id' => $user->id]) }}"><button class="btn btn-info">Edit</button></a></td>
+                                    <td><a href="{{ route('add.permission',$user->id) }}"><button class="btn btn-primary">Add</button></a></td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -41,8 +41,8 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Username</th>
-                                <th>Phone</th>
-                                <th>Photo</th>
+                                <th>Role</th>
+                                <th>Permissions</th>
                                 <th>Action</th>
                             </tr>
                             </tfoot>
