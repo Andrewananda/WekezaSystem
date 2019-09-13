@@ -45,9 +45,9 @@
 </head>
 <body>
 <!-- Login Background -->
-<div id="login-background">
+<div >
     <!-- For best results use an image with a resolution of 2560x400 pixels (prefer a blurred image for smaller file size) -->
-    <img src="{{ asset('assets/login/img/placeholders/headers/login_header.jpg')}}" alt="Login Background" class="animation-pulseSlow">
+    <img src="{{ asset('assets/login/img/placeholders/headers/Cousins.jpeg')}}" width="100%" height="600px" style="background-repeat: repeat-x" alt="Login Background" >
 </div>
 <!-- END Login Background -->
 
