@@ -1,20 +1,19 @@
 @extends('layouts.app')
 @section('content')
 
-    <form action="{{ route('add.permission', $role->id) }}" method="post">
+    <form action="{{ route('assign.permission', ['id'=>$role->id]) }}" method="post">
         @csrf
         <div id="page-content">
             <div class="row form-group">
                 <div class="col-md-6">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" name="name" id="name" value="{{ $role->name }}" />
+                    <div class="block-title">
+                        <h2>{{ $role->name }}</h2>
+                    </div>
                 </div>
             </div>
 
             <div class="block full">
-                <div class="block-title">
-                    <h2>{{ $role->name }}</h2>
-                </div>
+
                 <p> All User Permissions</p>
                 <div class="table-responsive">
                     <div class="form-group">
@@ -45,7 +44,6 @@
                 </div>
             </div>
         </div>
-
     </form>
 
 

@@ -49,7 +49,10 @@ Route::get('/add-permission/{id}',[
     'uses'=>'MemberController@addPermission',
     'as'=>'add.permission'
 ]);
-
+Route::post('/assign-permission/{id}',[
+    'uses'=>'MemberController@assignPermission',
+    'as'=>'assign.permission'
+]);
 
 Auth::routes();
 Route::get('/logout',[

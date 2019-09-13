@@ -25,7 +25,7 @@ class MemberController extends Controller
         return "Updated";
     }
     public function addPermission($id) {
-        $role = Role::where('id',2)->with(['permissions'])->first();
+        $role = Role::where('id',$id)->with(['permissions'])->first();
         if (!$role)
         {
             abort(404);
@@ -33,6 +33,19 @@ class MemberController extends Controller
         $permissions = Permission::all();
         $perms = $role->permissions->pluck('id')->all();
         return view('member-role',['role'=>$role, 'permissions'=>$permissions, 'perms'=>$perms]);
+    }
+    public function assignPermission(Request $request,$id) {
+
+        $p_ids = array_map('intval',$request->input('permissions'));
+        $permission = Permission::where('id',$p_ids)->pluck('name')->all();
+
+        $role = Role::where(['id',$id])->first();
+        $role->name = $request->input('name');
+        $role->save();
+        $role->syncPermissions($permission);
+        return redirect()->route('add.member')->with(['message'=>'Successfully added']);
+
+
     }
 
 }
