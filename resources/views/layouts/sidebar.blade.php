@@ -67,7 +67,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/UI/general.html"><i class="fa fa-book"></i> Give Permissions</a></li>
+                    <li><a href="{{ route('member.permission') }}"><i class="fa fa-book"></i> Give Permissions</a></li>
                     <li><a href="pages/UI/icons.html"><i class="fa fa-bookmark"></i> All Permission</a></li>
                 </ul>
             </li>

@@ -25,7 +25,11 @@
                                 <tr>
                                     <td>{{$user->name}}</td>
                                     <td>{{ $user->username }}</td>
-                                    <td>{{ $user->phone }}</td>
+                                    <td>
+                                        @foreach($user->getRoleNames() as $role)
+                                            {{ $role }}
+                                        @endforeach
+                                    </td>
                                     <td>
                                         <img src="{{ $user->photo }}" height="100px" alt="">
                                     </td>

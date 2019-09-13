@@ -13,6 +13,7 @@
 
 
 
+
 Route::get('/', 'HomeController@index')->name('home');
 
 
@@ -36,6 +37,15 @@ Route::post('/update-member/{id}',[
    'uses'=>'UserController@updateMember',
    'as'=>'update.member'
 ]);
+Route::get('/user-permission',[
+   'uses'=>'MemberController@userPermission',
+   'as'=>'member.permission'
+]);
+Route::get('/permission',[
+    'uses'=>'MemberController@createRole',
+    'as'=>'role'
+]);
+
 
 Auth::routes();
 Route::get('/logout',[
