@@ -6,7 +6,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Wekeza Cousins</h3>
+                        <h3 class="box-title">All Permissions</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -22,16 +22,16 @@
                             </thead>
                             <tbody>
                             @foreach($users as $user)
-                            <tr>
-                                <td>{{$user->name}}</td>
-                                <td>{{ $user->username }}</td>
-                                <td>{{ $user->phone }}</td>
-                                <td>
-                                    <img src="{{ $user->photo }}" height="100px" alt="">
-                                </td>
-                                <td><a href="{{ route('edit.member',['id' => $user->id]) }}"><button class="btn btn-info">Edit</button></a></td>
-                            </tr>
-                                @endforeach
+                                <tr>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{ $user->username }}</td>
+                                    <td>{{ $user->phone }}</td>
+                                    <td>
+                                        <img src="{{ $user->photo }}" height="100px" alt="">
+                                    </td>
+                                    <td><a href="{{ route('edit.member',['id' => $user->id]) }}"><button class="btn btn-info">Edit</button></a></td>
+                                </tr>
+                            @endforeach
                             </tbody>
                             <tfoot>
                             <tr>
@@ -52,4 +52,4 @@
         <!-- /.row -->
     </section>
 
-    @endsection
+@endsection
