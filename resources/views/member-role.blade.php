@@ -21,11 +21,10 @@
                             <div class="row form-group">
                                 @for($i=0;$i<sizeof($permissions);$i++)
                                     <div class="col-md-3 permit">
-                                        @if($permissions[$i]->id)
-
-                                            <input  type="checkbox" id="permission{{$i}}" name="permissions[]" value="{{ $permissions[$i]->id }}" checked>
+                                        @if(in_array($permissions[$i]->id, $perms))
+                                            <input tabindex="1" type="checkbox" id="permission{{$i}}"  name="permissions[]" value="{{ $permissions[$i]->id }}" checked>
                                         @else
-                                            <input  type="checkbox" id="permission{{$i}}" name="permissions[]" value="{{ $permissions[$i]->id }}">
+                                            <input tabindex="1" type="checkbox" id="permission{{$i}}"  name="permissions[]" value="{{ $permissions[$i]->id }}">
                                         @endif
                                         <label for="permission{{$i}}"><span>{{ ucwords(str_replace('-',' ',$permissions[$i]->name)) }}</span></label>
                                     </div>

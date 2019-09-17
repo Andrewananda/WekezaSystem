@@ -12,10 +12,7 @@ class MemberController extends Controller
 {
 
     public function userPermission() {
-        $users = User::role([
-            'admin',
-            'member'
-        ])->get();
+        $users = User::all();
         return view('add-permission-user',['users'=>$users]);
     }
     public function createRole() {
@@ -25,7 +22,7 @@ class MemberController extends Controller
         return "Updated";
     }
     public function addPermission($id) {
-        $role = Role::where('id',$id)->with(['permissions'])->first();
+        $role = User::where('id',$id)->with(['permissions'])->first();
         if (!$role)
         {
             abort(404);
@@ -39,7 +36,7 @@ class MemberController extends Controller
         $p_ids = array_map('intval',$request->input('permissions'));
         $permission = Permission::where('id',$p_ids)->pluck('name')->all();
 
-        $role = Role::where(['id',$id])->first();
+        $role = Role::where(['id',2])->first();
         $role->name = $request->input('name');
         $role->save();
         $role->syncPermissions($permission);
