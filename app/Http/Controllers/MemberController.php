@@ -33,13 +33,12 @@ class MemberController extends Controller
     }
     public function assignPermission(Request $request,$id) {
 
-        $p_ids = array_map('intval',$request->input('permissions'));
-        $permission = Permission::where('id',$p_ids)->pluck('name')->all();
+        $ids = array_map('intval', $request->input('permissions'));
+        $permission = Permission::whereIn('id',$ids)->pluck('name')->all();
 
-        $role = Role::where(['id',2])->first();
-        $role->name = $request->input('name');
-        $role->save();
-        $role->syncPermissions($permission);
+        $user = User::where(['id'=>$id])->first();
+
+        $user->syncPermissions($permission);
         return redirect()->route('add.member')->with(['message'=>'Successfully added']);
 
 
