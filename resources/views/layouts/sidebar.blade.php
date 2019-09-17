@@ -31,6 +31,7 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
+            @if(Auth::user()->can('add-member'))
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-user"></i>
@@ -44,6 +45,7 @@
                     <li><a href="{{route('all.members')}}"><i class="fa fa-list"></i> View Members</a></li>
                 </ul>
             </li>
+            @endif
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-bookmark"></i>

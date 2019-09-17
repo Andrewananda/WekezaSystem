@@ -22,14 +22,14 @@ class MemberController extends Controller
         return "Updated";
     }
     public function addPermission($id) {
-        $role = User::where('id',$id)->with(['permissions'])->first();
-        if (!$role)
+        $user = User::where('id',$id)->with(['permissions'])->first();
+        if (!$user)
         {
             abort(404);
         }
         $permissions = Permission::all();
-        $perms = $role->permissions->pluck('id')->all();
-        return view('member-role',['role'=>$role, 'permissions'=>$permissions, 'perms'=>$perms]);
+        $perms = $user->permissions->pluck('id')->all();
+        return view('member-role',['role'=>$user, 'permissions'=>$permissions, 'perms'=>$perms]);
     }
     public function assignPermission(Request $request,$id) {
 
@@ -37,7 +37,6 @@ class MemberController extends Controller
         $permission = Permission::whereIn('id',$ids)->pluck('name')->all();
 
         $user = User::where(['id'=>$id])->first();
-
         $user->syncPermissions($permission);
         return redirect()->route('add.member')->with(['message'=>'Successfully added']);
 

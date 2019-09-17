@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('content')
 
-    <form action="{{ route('assign.permission', ['id'=>$role->id]) }}" method="post">
+    <form action="{{ route('assign.permission', ['id'=>$user->id]) }}" method="post">
         @csrf
         <div id="page-content">
             <div class="row form-group">
                 <div class="col-md-6">
                     <div class="block-title">
-                        <h2>{{ $role->name }}</h2>
+                        <h2>{{ $user->name }}</h2>
                     </div>
                 </div>
             </div>
