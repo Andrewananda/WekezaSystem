@@ -76,6 +76,10 @@ Route::post('/member-contribution',[
     'uses'=>'MemberController@contribution',
     'as'=>'member.contribution'
 ]);
+route::get('/all-contributions',[
+    'uses'=>'MemberController@allContributions',
+    'as'=>'all.contributions'
+]);
 
 Auth::routes();
 Route::get('/logout',[

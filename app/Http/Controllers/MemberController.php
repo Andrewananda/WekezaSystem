@@ -67,7 +67,10 @@ class MemberController extends Controller
 
         $user->save();
         return redirect()->back()->with(['message'=>'Successful']);
-
+    }
+    public function allContributions() {
+        $users = Contribution::all();
+        return view('Contributions.all-contributions',['users'=>$users]);
     }
 
 }
