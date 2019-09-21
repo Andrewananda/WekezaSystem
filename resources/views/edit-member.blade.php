@@ -61,5 +61,5 @@
             </div>
         </form>
     </div>
-
+@include('exception.error')
 @endsection
