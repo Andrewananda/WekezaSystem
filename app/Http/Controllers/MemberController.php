@@ -41,7 +41,7 @@ class MemberController extends Controller
 
         $user = User::where(['id'=>$id])->first();
         $user->syncPermissions($permission);
-        return redirect()->route('member.permission')->with(['message'=>'Successfully added']);
+        return redirect()->back()->with(['message'=>'Successfully added']);
 
     }
 

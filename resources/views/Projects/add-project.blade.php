@@ -7,6 +7,7 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
+        @include('exception.error')
         <form method="post" action="{{ route('add.project') }}">
             @csrf
             <div class="row">

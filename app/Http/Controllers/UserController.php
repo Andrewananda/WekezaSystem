@@ -40,7 +40,7 @@ class UserController extends Controller
         $user->password = bcrypt($request['password']);
         $user->photo = $base_url . $filenameToStore;
         $user->save();
-        return redirect()->route('home')->with(['message'=>'Successfull']);
+        return redirect()->back()->with(['message'=>'Successfully added user']);
     }
 
     public function allMembers() {
@@ -78,7 +78,7 @@ class UserController extends Controller
         $user->phone = $request['phone'];
         //$user->photo = $request['photo'];
         $user->update();
-        return redirect()->route('all.members')->with(['message'=>'Updated Successfully']);
+        return redirect()->back()->with(['message'=>'Updated Successfully']);
     }
 
     public function logout() {

@@ -7,6 +7,7 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
+        @include('exception.error')
         <form enctype="multipart/form-data" method="post" action="{{ route('update.profile',['id'=>$user->id]) }}">
             @csrf
             <div class="row">
@@ -75,7 +76,7 @@
 
             </div>
             <div class="box-body">
-                <button type="submit" style="margin-left:50%;margin-right:50%;display:block;margin-top:0%;margin-bottom:0%" class="btn btn-primary">Submit</button>
+                <button type="submit" style="margin-left:50%;margin-right:50%;display:block;margin-top:0%;margin-bottom:0%" class="btn btn-primary">Update</button>
             </div>
         </form>
     </div>
