@@ -55,7 +55,7 @@
 <div id="login-container" class="animation-fadeIn">
     <!-- Login Title -->
     <div class="login-title text-center">
-        <h1><i class="gi gi-flash"></i> <strong>Wekeza</strong><br><small> <strong>Login</strong> or <strong>Register</strong></small></h1>
+        <h1><i class="gi gi-flash"></i> <strong>Login</strong><br></h1>
     </div>
     <!-- END Login Title -->
 
@@ -80,11 +80,9 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group form-actions">
-                <div class="col-xs-8 text-right">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </div>
+
+                    <button style="margin-left: 40%; padding-bottom: 5px; margin-bottom: 15px;" class="btn btn-primary" name="submit"><i class="fa fa-unlock-alt"></i> Submit</button>
+
 
         </form>
         <!-- END Login Form -->
