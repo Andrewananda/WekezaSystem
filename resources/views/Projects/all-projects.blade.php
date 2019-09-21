@@ -15,7 +15,9 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Description</th>
+                                @if(Auth::user()->can('add-project'))
                                 <th>Action</th>
+                                    @endif
                             </tr>
                             </thead>
                             <tbody>
@@ -23,7 +25,9 @@
                                 <tr>
                                     <td>{{$project->title}}</td>
                                     <td width="600px">{{ $project->description }}</td>
+                                    @if(Auth::user()->can('add-project'))
                                     <td><a href="{{ route('edit.project',['id' => $project->id]) }}"><button class="btn btn-info">Edit</button></a></td>
+                                        @endif
                                 </tr>
                             @endforeach
                             </tbody>
@@ -32,7 +36,9 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Description</th>
+                                @if(Auth::user()->can('add-project'))
                                 <th>Action</th>
+                                    @endif
                             </tr>
                             </tr>
                             </tfoot>

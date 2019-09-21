@@ -76,7 +76,7 @@ class MemberController extends Controller
 
     public function myContributions() {
         $id = Auth::user()->getAuthIdentifier();
-        $contributions = Contribution::whereRaw('user_id',$id)->get();
+        $contributions = Contribution::where(['user_id'=>$id])->get();
         return view('Contributions.my-contribution',['contributions'=>$contributions]);
     }
     public function addProject(Request $request)
