@@ -13,7 +13,7 @@
                         <table id="example2" class="table table-bordered table-hover">
                             <tbody>
                             <td>
-                                <img src="{{ $user->photo }}" height="100px" alt="img"> <br>
+                                <img src="{{ $user->photo }}" height="150px" alt="img"> <br>
                                 Phone: <b>{{ $user->phone }} </b> <br>
                                 Username: <b> {{ $user->username }} </b>
                             </td>
