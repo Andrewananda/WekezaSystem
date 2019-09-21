@@ -80,6 +80,10 @@ route::get('/all-contributions',[
     'uses'=>'MemberController@allContributions',
     'as'=>'all.contributions'
 ]);
+Route::get('/my-contribution',[
+    'uses'=>'MemberController@myContributions',
+    'as'=>'my.contributions'
+]);
 
 Auth::routes();
 Route::get('/logout',[

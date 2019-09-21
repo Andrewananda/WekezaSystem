@@ -73,4 +73,10 @@ class MemberController extends Controller
         return view('Contributions.all-contributions',['users'=>$users]);
     }
 
+    public function myContributions() {
+        $id = Auth::user()->getAuthIdentifier();
+        $contributions = Contribution::whereRaw('user_id',$id)->get();
+        return view('Contributions.my-contribution',['contributions'=>$contributions]);
+    }
+
 }

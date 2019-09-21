@@ -90,6 +90,8 @@
                 <ul class="treeview-menu">
                     <li><a href="{{ route('contribute') }}"><i class="fa fa-circle-o"></i> Add Contribution</a></li>
                     <li><a href="{{ route('all.contributions') }}"><i class="fa fa-circle-o"></i> All Contributions</a></li>
+                    <li><a href="{{ route('my.contributions') }}"><i class="fa fa-circle-o"></i> My Contributions</a></li>
+
                 </ul>
             </li>
         </ul>
