@@ -1,32 +1,83 @@
 @extends('layouts.app')
 @section('content')
 
-    <section class="content">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">{{ $user->name }}</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <table id="example2" class="table table-bordered table-hover">
-                            <tbody>
-                            <td>
-                                <img src="{{ $user->photo }}" height="150px" alt="img"> <br>
-                                Phone: <b>{{ $user->phone }} </b> <br>
-                                Username: <b> {{ $user->username }} </b>
-                            </td>
-                            <td></td>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-            </div>
-            <!-- /.col -->
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Update Profile</h3>
         </div>
-        <!-- /.row -->
-    </section>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form enctype="multipart/form-data" method="post" action="{{ route('update.profile',['id'=>$user->id]) }}">
+            @csrf
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="first_name">Name</label>
+                            <input type="text" name="name" value="{{ $user->name }}" class="form-control" id="first_name" placeholder="First name">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="id_number">ID</label>
+                            <input type="text" name="id_number" value="{{ $user->id_number }}" class="form-control" id="id_number" placeholder="id number">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="phone">phone</label>
+                            <input type="phone" name="phone" value="{{ $user->phone }}" class="form-control" id="phone" placeholder="phone">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" value="{{ $user->username }}" class="form-control" id="username" placeholder="username">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="photo">Photo</label>
+                            <img src="{{ $user->photo }}" height="100px" alt="">
+                            <input type="file" id="photo" name="photo">
+                            <p class="help-block">Update member photo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="password">Change Password</label>
+                            <input type="password" name="password" value="{{ encrypt($user->password) }}" class="form-control" id="password" placeholder="Change Password">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
+
+{{--                            <input type="hidden" name="password" value="{{ $user->password }}" class="form-control" id="password" placeholder="Change Password">--}}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="box-body">
+                <button type="submit" style="margin-left:50%;margin-right:50%;display:block;margin-top:0%;margin-bottom:0%" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
 
 @endsection

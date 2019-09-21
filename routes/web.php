@@ -68,6 +68,10 @@ Route::get('/profile',[
    'uses'=>'UserController@profile',
    'as'=>'profile'
 ]);
+Route::post('/update-profile/{id}',[
+    'uses'=>'UserController@updateProfile',
+    'as'=>'update.profile'
+]);
 Route::get('/members',[
     'uses'=>'MemberController@members',
     'as'=>'contribute'
