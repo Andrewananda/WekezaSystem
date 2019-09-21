@@ -7,6 +7,7 @@ use App\Project;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -70,13 +71,17 @@ class MemberController extends Controller
         return redirect()->back()->with(['message'=>'Successful']);
     }
     public function allContributions() {
-        $users = Contribution::all();
+        $users = Contribution::query()
+        ->orderBy('id','Desc')
+        ->get();
         return view('Contributions.all-contributions',['users'=>$users]);
     }
 
     public function myContributions() {
         $id = Auth::user()->getAuthIdentifier();
-        $contributions = Contribution::where(['user_id'=>$id])->get();
+        $contributions = Contribution::query()
+            ->orderBy('date','Desc')
+        ->where(['user_id'=>$id])->get();
         return view('Contributions.my-contribution',['contributions'=>$contributions]);
     }
     public function addProject(Request $request)
