@@ -64,6 +64,10 @@ Route::get('/permission',[
     'uses'=>'UserController@permission',
     'as'=>'register.permission'
 ]);
+Route::get('/profile',[
+   'uses'=>'UserController@profile',
+   'as'=>'profile'
+]);
 
 Auth::routes();
 Route::get('/logout',[

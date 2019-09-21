@@ -94,4 +94,9 @@ class UserController extends Controller
         return redirect()->back()->with(['message'=>'added successfully']);
     }
 
+    public function profile() {
+        $user = Auth::user();
+        return view('profile',['user'=>$user]);
+    }
+
 }
