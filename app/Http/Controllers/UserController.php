@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -83,6 +84,14 @@ class UserController extends Controller
         $user = Auth::user();
         Auth::logout($user);
         return redirect()->route('login');
+    }
+    public function permission() {
+        return view('add-permission');
+    }
+    public function registerPermission(Request $request) {
+        $permission = $request['name'];
+        Permission::create(['name'=>$permission,'guard_name'=>'web']);
+        return redirect()->back()->with(['message'=>'added successfully']);
     }
 
 }

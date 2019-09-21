@@ -13,7 +13,6 @@
 
 
 
-
 Route::get('/', 'HomeController@index')->name('home');
 
 
@@ -52,6 +51,18 @@ Route::get('/add-permission/{id}',[
 Route::post('/assign-permission/{id}',[
     'uses'=>'MemberController@assignPermission',
     'as'=>'assign.permission'
+]);
+Route::get('/all-permissions',[
+    'uses'=>'MemberController@allPermissions',
+    'as'=>'all.permissions'
+]);
+Route::post('/add-permission',[
+    'uses'=>'UserController@registerPermission',
+    'as'=>'register.permissions'
+]);
+Route::get('/permission',[
+    'uses'=>'UserController@permission',
+    'as'=>'register.permission'
 ]);
 
 Auth::routes();

@@ -29,7 +29,7 @@ class MemberController extends Controller
         }
         $permissions = Permission::all();
         $perms = $user->permissions->pluck('id')->all();
-        return view('member-role',['role'=>$user, 'permissions'=>$permissions, 'perms'=>$perms]);
+        return view('member-role',['user'=>$user, 'permissions'=>$permissions, 'perms'=>$perms]);
     }
     public function assignPermission(Request $request,$id) {
 
@@ -40,7 +40,11 @@ class MemberController extends Controller
         $user->syncPermissions($permission);
         return redirect()->route('member.permission')->with(['message'=>'Successfully added']);
 
+    }
 
+    public function allPermissions() {
+        $permissions = Permission::all();
+        return view('all-permissions',['permissions'=>$permissions]);
     }
 
 }
