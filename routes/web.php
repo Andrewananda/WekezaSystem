@@ -68,6 +68,14 @@ Route::get('/profile',[
    'uses'=>'UserController@profile',
    'as'=>'profile'
 ]);
+Route::get('/members',[
+    'uses'=>'MemberController@members',
+    'as'=>'contribute'
+]);
+Route::post('/member-contribution',[
+    'uses'=>'MemberController@contribution',
+    'as'=>'member.contribution'
+]);
 
 Auth::routes();
 Route::get('/logout',[

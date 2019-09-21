@@ -88,7 +88,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Add Contribution</a></li>
+                    <li><a href="{{ route('contribute') }}"><i class="fa fa-circle-o"></i> Add Contribution</a></li>
                     <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> All Contributions</a></li>
                 </ul>
             </li>

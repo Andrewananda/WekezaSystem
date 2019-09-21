@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contribution;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,6 +46,28 @@ class MemberController extends Controller
     public function allPermissions() {
         $permissions = Permission::all();
         return view('all-permissions',['permissions'=>$permissions]);
+    }
+    public function members() {
+        $users = User::all();
+        return view('Contributions.contribution',['users'=>$users]);
+    }
+    public function contribution(Request $request) {
+        $validation = $request->validate([
+            'user_id'=>'required',
+            'date'=>'required',
+            'amount'=>'required'
+        ]);
+        if (!$validation) {
+            return back()->withErrors(['message'=>'All fields are required']);
+        }
+        $user = new Contribution();
+        $user->user_id = $request['user_id'];
+        $user->date = $request['date'];
+        $user->amount = $request['amount'];
+
+        $user->save();
+        return redirect()->back()->with(['message'=>'Successful']);
+
     }
 
 }
