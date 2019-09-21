@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contribution;
+use App\Project;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -77,6 +78,25 @@ class MemberController extends Controller
         $id = Auth::user()->getAuthIdentifier();
         $contributions = Contribution::whereRaw('user_id',$id)->get();
         return view('Contributions.my-contribution',['contributions'=>$contributions]);
+    }
+    public function addProject(Request $request)
+    {
+        $validate = $request->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+        if (!$validate) {
+            return back()->withInput(['message' => 'all inputs are required']);
+        }
+        $project = new Project();
+        $project->title = $request['title'];
+        $project->description = $request['description'];
+        $project->save();
+        return redirect()->back()->with(['message' => 'added successfully']);
+    }
+    public function allProjects() {
+        $projects =  Project::all();
+        return view('Projects.all-projects',['projects'=>$projects]);
     }
 
 }

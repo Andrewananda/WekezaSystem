@@ -17,7 +17,9 @@
                                 <th>Username</th>
                                 <th>Phone</th>
                                 <th>Photo</th>
+                                @if(Auth::user()->can('edit-member'))
                                 <th>Action</th>
+                                    @endif
                             </tr>
                             </thead>
                             <tbody>
@@ -29,7 +31,9 @@
                                 <td>
                                     <img src="{{ $user->photo }}" height="100px" alt="">
                                 </td>
+                                @if(Auth::user()->can('edit-member'))
                                 <td><a href="{{ route('edit.member',['id' => $user->id]) }}"><button class="btn btn-info">Edit</button></a></td>
+                                    @endif
                             </tr>
                                 @endforeach
                             </tbody>
@@ -39,7 +43,9 @@
                                 <th>Username</th>
                                 <th>Phone</th>
                                 <th>Photo</th>
+                                @if(Auth::user()->can('edit-member'))
                                 <th>Action</th>
+                                    @endif
                             </tr>
                             </tfoot>
                         </table>

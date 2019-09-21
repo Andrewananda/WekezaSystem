@@ -84,6 +84,21 @@ Route::get('/my-contribution',[
     'uses'=>'MemberController@myContributions',
     'as'=>'my.contributions'
 ]);
+Route::get('/project',function (){
+   return view('Projects.add-project');
+})->name('project');
+Route::post('/add-project',[
+    'uses'=>'MemberController@addProject',
+    'as'=>'add.project'
+]);
+Route::get('/all-projects',[
+    'uses'=>'MemberController@allProjects',
+    'as'=>'all.projects'
+]);
+Route::get('/edit-project',[
+    'uses'=>'MemberController@editProject',
+    'as'=>'edit.project'
+]);
 
 Auth::routes();
 Route::get('/logout',[
