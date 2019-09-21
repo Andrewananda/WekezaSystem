@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Contribution;
+use App\Project;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $users = User::all();
+        $projects = Project::all();
+        $contributions = Contribution::query()->sum('amount');
+        return view('home',['users'=>$users,'projects'=>$projects,'contributions'=>$contributions]);
     }
 }
