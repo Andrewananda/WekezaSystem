@@ -109,13 +109,14 @@ class UserController extends Controller
             $base_url = "http://localhost/WekezaCousins/storage/app/public/member_identity/";
 
             $user = User::where('id',$id)->first();
-            $user->name = $request['first_name'];
+            $user->name = $request['name'];
             $user->username = $request['username'];
             $user->id_number = $request['id_number'];
             $user->phone = $request['phone'];
-            $user->password = $request['password'];
+            $user->password = bcrypt($request['password']);
             $user->photo = $base_url . $filenameToStore;
             $user->save();
+            //return redirect()->back()->with(['message'=>'Updated successfully']);
         }
 
         $user = User::where('id',$id)->first();
@@ -124,8 +125,10 @@ class UserController extends Controller
         $user->id_number = $request['id_number'];
         $user->phone = $request['phone'];
         $user->password = bcrypt($request['password']);
+        //$user->photo = $request['photo'];
+
         $user->update();
-        return redirect()->back()->with(['message'=>'updated successfully']);
+        return redirect()->back()->with(['message'=>'Updated successfully']);
 
     }
 

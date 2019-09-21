@@ -15,7 +15,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="first_name">Name</label>
-                            <input type="text" name="name" value="{{ $user->name }}" class="form-control" id="first_name" placeholder="First name">
+                            <input type="text" name="name" value="{{ $user->name }}" class="form-control" id="name" placeholder="Name">
                         </div>
                     </div>
                 </div>
@@ -50,8 +50,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="photo">Photo</label>
-                            <img src="{{ $user->photo }}" height="100px" alt="">
-                            <input type="file" id="photo" name="photo">
+                            <img src="{{ $user->photo }}" height="100px" alt="" id="photo" name="photo">
                             <p class="help-block">Update member photo.</p>
                         </div>
                     </div>
@@ -61,7 +60,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="password">Change Password</label>
-                            <input type="password" name="password" value="{{ encrypt($user->password) }}" class="form-control" id="password" placeholder="Change Password">
+                            <input type="password" name="password" value="{{ $user->password }}" class="form-control" id="password" placeholder="Change Password">
                         </div>
                     </div>
                 </div>
