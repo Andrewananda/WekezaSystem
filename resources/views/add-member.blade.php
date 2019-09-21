@@ -7,7 +7,7 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        @include('exception.error')
+
         <form enctype="multipart/form-data" method="post" action="{{ route('register.member') }}">
             @csrf
             <div class="row">
@@ -77,5 +77,5 @@
             </div>
         </form>
     </div>
-
+    @include('exception.error')
 @endsection
