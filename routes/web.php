@@ -115,6 +115,10 @@ Route::get('/all-minutes',[
     'uses'=>'UserController@allMinutes',
     'as'=>'all.minutes'
 ]);
+Route::get('/gallery',[
+    'uses'=>'UserController@gallery',
+    'as'=>'gallery'
+]);
 
 Auth::routes();
 Route::get('/logout',[

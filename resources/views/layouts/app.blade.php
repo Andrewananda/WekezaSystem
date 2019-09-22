@@ -28,6 +28,7 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/custom.js') }}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -123,5 +124,26 @@
 <script src="{{ asset('assets/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('assets/dist/js/demo.js')}}"></script>
+
+<script>
+    function readURL(input) {
+
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result);
+            };
+            var total_file = input.files.length;
+            for(var i=0;i<total_file;i++) {
+                reader.readAsDataURL(input.files[i]);
+            }
+
+    }
+
+
+
+</script>
+
 </body>
 </html>

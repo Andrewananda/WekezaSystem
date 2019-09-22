@@ -164,5 +164,8 @@ class UserController extends Controller
         $minutes = Minutes::all();
         return view('Minutes.all-minutes',['minutes'=>$minutes]);
     }
+    public function gallery() {
+        return view('Gallery.add-gallery');
+    }
 
 }

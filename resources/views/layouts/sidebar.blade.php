@@ -68,7 +68,6 @@
                 </ul>
             </li>
 
-            @if(Auth::user()->can('login'))
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-book"></i>
@@ -84,7 +83,6 @@
                         <li><a href="{{ route('all.minutes') }}"><i class="fa fa-bookmark-o"></i> All Minutes</a></li>
                     </ul>
                 </li>
-            @endif
 
             @if(Auth::user()->can('add-permissions'))
             <li class="treeview">
@@ -103,28 +101,23 @@
             </li>
             @endif
 
+
             <li class="treeview">
                 <a href="#">
-                    @if(Auth::user()->can('add-member'))
-                    <i class="fa fa-users"></i> <span>Manage Members</span>
-                    @else
-                       <i class="fa fa-users"></i> <span>Punished Members</span>
-                    @endif
+                    <i class="fa fa-file-image-o"></i>
+                    <span> Gallery</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
-
                 <ul class="treeview-menu">
-                    @if(Auth::user()->can('add-member'))
-                    <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> Remove Member</a></li>
-                    <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Assign Penalty To Member</a></li>
+                    @if(Auth::user()->can('add-gallery'))
+                        <li><a href="{{ route('gallery') }}"><i class="fa fa-bookmark"></i> Add Images</a></li>
                     @endif
-                    @if(Auth::user()->can('view-punished'))
-                    <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> All Punished Members</a></li>
-                    @endif
+                    <li><a href="{{ route('all.minutes') }}"><i class="fa fa-image"></i> View Gallery</a></li>
                 </ul>
             </li>
+
 
 
             <li class="treeview">
