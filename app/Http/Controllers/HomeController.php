@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contribution;
+use App\Gallery;
 use App\Project;
 use App\User;
 use Illuminate\Http\Request;
@@ -28,7 +29,8 @@ class HomeController extends Controller
     {
         $users = User::all();
         $projects = Project::all();
+        $gallery = Gallery::all();
         $contributions = Contribution::query()->sum('amount');
-        return view('home',['users'=>$users,'projects'=>$projects,'contributions'=>$contributions]);
+        return view('home',['users'=>$users,'projects'=>$projects,'contributions'=>$contributions,'galleries'=>$gallery]);
     }
 }

@@ -52,14 +52,14 @@
                 <!-- small box -->
                 <div class="small-box bg-red">
                     <div class="inner">
-                        <h3>65</h3>
+                        <h3>{{ count($galleries) }}</h3>
 
                         <p>Gallery Images</p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-file-picture-o"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('all.photos') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
