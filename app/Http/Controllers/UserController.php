@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Minutes;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -130,6 +131,34 @@ class UserController extends Controller
         $user->update();
         return redirect()->back()->with(['message'=>'Updated successfully']);
 
+    }
+    public function minutes(){
+        return view('Minutes.add-minutes');
+    }
+    public function addMinutes(Request $request) {
+        $validation = $request->validate([
+            'title'=>'required',
+            'date'=>'required',
+            'minutes'=>'required'
+        ]);
+        if (!$validation) {
+            return redirect()->back()->withErrors(['message'=>'All inputs are required']);
+        }
+        if ($request->hasFile('minutes')) {
+            $filenameWithExt = $request->file('minutes')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            $extension = $request->file('minutes')->getClientOriginalExtension();
+            $filenameToStore = $filename . '_' . time() . '.'  . $extension;
+            $request->file('photo')->storeAs('public/minutes',$filenameToStore);
+            $base_url = "http://localhost/WekezaCousins/storage/app/public/minutes/";
+
+        }
+        $minute = new Minutes();
+        $minute->title = $request['title'];
+        $minute->date = $request['date'];
+        $minute->minute = $base_url . $filenameToStore;
+        $minute->save();
+        return redirect()->back()->with(['message'=>'Updated successfully']);
     }
 
 }

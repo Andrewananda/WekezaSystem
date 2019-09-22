@@ -103,6 +103,14 @@ Route::get('/edit-project',[
     'uses'=>'MemberController@editProject',
     'as'=>'edit.project'
 ]);
+Route::get('/add-minutes',[
+    'uses'=>'UserController@minutes',
+    'as'=>'minutes'
+]);
+Route::post('/upload-minutes',[
+    'as'=>'add.minutes',
+    'uses'=>'UserController@addMinutes'
+]);
 
 Auth::routes();
 Route::get('/logout',[
