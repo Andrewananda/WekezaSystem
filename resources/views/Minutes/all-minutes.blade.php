@@ -25,7 +25,7 @@
                                     <td>{{ $minute->date }}</td>
 
                                     <td>
-                                        <a href="{{ $minute->minute }}">
+                                        <a target="_blank" href="{{ $minute->minute }}">
                                         <button class="btn btn-info">View Minutes</button>
                                         </a>
                                     </td>

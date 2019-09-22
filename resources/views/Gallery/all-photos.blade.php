@@ -10,9 +10,8 @@
                 <div class="col-md-3">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="photo">Photo</label>
                             <div id="imagePreview">
-                                <img src="{{ $photo->photo }}" height="100px" id="blah" alt="">
+                                <img class="img img-bordered-sm" src="{{ $photo->photo }}" height="100px" id="blah" alt="">
                             </div>
 
                         </div>
