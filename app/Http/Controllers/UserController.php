@@ -149,7 +149,7 @@ class UserController extends Controller
             $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
             $extension = $request->file('minutes')->getClientOriginalExtension();
             $filenameToStore = $filename . '_' . time() . '.'  . $extension;
-            $request->file('photo')->storeAs('public/minutes',$filenameToStore);
+            $request->file('minutes')->storeAs('public/minutes',$filenameToStore);
             $base_url = "http://localhost/WekezaCousins/storage/app/public/minutes/";
 
         }
@@ -159,6 +159,10 @@ class UserController extends Controller
         $minute->minute = $base_url . $filenameToStore;
         $minute->save();
         return redirect()->back()->with(['message'=>'Updated successfully']);
+    }
+    public function allMinutes() {
+        $minutes = Minutes::all();
+        return view('Minutes.all-minutes',['minutes'=>$minutes]);
     }
 
 }

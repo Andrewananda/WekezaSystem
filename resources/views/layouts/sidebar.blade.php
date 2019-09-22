@@ -81,7 +81,7 @@
                         @if(Auth::user()->can('add-minutes'))
                         <li><a href="{{ route('minutes') }}"><i class="fa fa-bookmark"></i> Add Minutes</a></li>
                         @endif
-                        <li><a href="{{ route('all.permissions') }}"><i class="fa fa-bookmark-o"></i> All Minutes</a></li>
+                        <li><a href="{{ route('all.minutes') }}"><i class="fa fa-bookmark-o"></i> All Minutes</a></li>
                     </ul>
                 </li>
             @endif

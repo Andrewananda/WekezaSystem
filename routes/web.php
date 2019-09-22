@@ -111,6 +111,10 @@ Route::post('/upload-minutes',[
     'as'=>'add.minutes',
     'uses'=>'UserController@addMinutes'
 ]);
+Route::get('/all-minutes',[
+    'uses'=>'UserController@allMinutes',
+    'as'=>'all.minutes'
+]);
 
 Auth::routes();
 Route::get('/logout',[
