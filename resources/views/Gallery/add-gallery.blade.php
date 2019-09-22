@@ -8,7 +8,7 @@
         <!-- /.box-header -->
         <!-- form start -->
 
-        <form enctype="multipart/form-data" method="post" action="{{ route('add.minutes') }}">
+        <form enctype="multipart/form-data" method="post" action="{{ route('add.gallery') }}">
             @csrf
             <div class="row">
                 <div class="col-md-3">
@@ -18,7 +18,7 @@
                             <div id="imagePreview">
                                 <img src="http://placehold.it/180" height="100px" id="blah" alt="">
                             </div>
-                            <input onchange="readURL(this);" type="file" id="imageUpload" name="photo">
+                            <input onchange="readURL(this);" value="1" type="file" id="imageUpload" name="photo[]">
                             <p class="help-block">Upload member photo.</p>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                             <div id="imagePreview">
                                 <img src="http://placehold.it/180" height="100px" id="blah" alt="">
                             </div>
-                            <input onchange="readURL(this);" type="file" id="imageUpload" name="photo">
+                            <input onchange="readURL(this);" value="2" type="file" id="imageUpload" name="photo[]">
                             <p class="help-block">Upload member photo.</p>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                             <div id="imagePreview">
                                 <img src="http://placehold.it/180" height="100px" id="blah" alt="">
                             </div>
-                            <input onchange="readURL(this);" type="file" id="imageUpload" name="photo">
+                            <input onchange="readURL(this);" value="3" type="file" id="imageUpload" name="photo[]">
                             <p class="help-block">Upload member photo.</p>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                             <div id="imagePreview">
                                 <img src="http://placehold.it/180" height="100px" id="blah" alt="">
                             </div>
-                            <input onchange="readURL(this);" type="file" id="imageUpload" name="photo">
+                            <input onchange="readURL(this);" value="4" type="file" id="imageUpload" name="photo[]">
                             <p class="help-block">Upload member photo.</p>
                         </div>
                     </div>

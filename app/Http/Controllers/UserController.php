@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Gallery;
 use App\Minutes;
 use App\User;
 use Illuminate\Http\Request;
@@ -167,5 +168,22 @@ class UserController extends Controller
     public function gallery() {
         return view('Gallery.add-gallery');
     }
+    public function addGallery(Request $request) {
+
+        foreach ($request['photo'] as $photo) {
+            $base_url = "http://localhost/WekezaCousins/storage/app/";
+            $store = $base_url . $photo->store('photos');
+              Gallery::create([
+                'photo'=>$store
+            ]);
+        }
+
+        return redirect()->back()->with(['message'=>'Uploaded successfully']);
+    }
+    public function allPhotos() {
+        $photos = Gallery::all();
+        return view('Gallery.all-photos',['photos'=>$photos]);
+    }
+
 
 }

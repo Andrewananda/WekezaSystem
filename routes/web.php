@@ -119,6 +119,14 @@ Route::get('/gallery',[
     'uses'=>'UserController@gallery',
     'as'=>'gallery'
 ]);
+Route::post('/add-gallery',[
+   'uses'=>'UserController@addGallery',
+   'as'=>'add.gallery'
+]);
+Route::get('all-photos',[
+    'uses'=>'UserController@allPhotos',
+    'as'=>'all.photos'
+]);
 
 Auth::routes();
 Route::get('/logout',[

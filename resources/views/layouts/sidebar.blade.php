@@ -114,7 +114,7 @@
                     @if(Auth::user()->can('add-gallery'))
                         <li><a href="{{ route('gallery') }}"><i class="fa fa-bookmark"></i> Add Images</a></li>
                     @endif
-                    <li><a href="{{ route('all.minutes') }}"><i class="fa fa-image"></i> View Gallery</a></li>
+                    <li><a href="{{ route('all.photos') }}"><i class="fa fa-image"></i> View Gallery</a></li>
                 </ul>
             </li>
 
