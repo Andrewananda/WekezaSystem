@@ -9,7 +9,7 @@
             </div>
             <div class="pull-left info">
                 <p>{{\Illuminate\Support\Facades\Auth::user()->name}}</p>
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <a href="{{ route('home') }}"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
         <!-- search form -->

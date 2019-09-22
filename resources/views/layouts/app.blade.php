@@ -43,12 +43,12 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-    @include('layouts.navbar')
+@include('layouts.navbar')
 
-    <!-- Left side column. contains the logo and sidebar -->
-    @include('layouts.sidebar')
+<!-- Left side column. contains the logo and sidebar -->
+@include('layouts.sidebar')
 
-    <!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -64,7 +64,7 @@
         <!-- Main content -->
         <section class="content">
             <!-- Small boxes (Stat box) -->
-       @yield('content')
+            @yield('content')
 
         </section>
         <!-- /.content -->
@@ -128,16 +128,16 @@
 <script>
     function readURL(input) {
 
-            var reader = new FileReader();
+        var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $('#blah')
-                    .attr('src', e.target.result);
-            };
-            var total_file = input.files.length;
-            for(var i=0;i<total_file;i++) {
-                reader.readAsDataURL(input.files[i]);
-            }
+        reader.onload = function (e) {
+            $('#blah')
+                .attr('src', e.target.result);
+        };
+        var total_file = input.files.length;
+        for(var i=0;i<total_file;i++) {
+            reader.readAsDataURL(input.files[i]);
+        }
 
     }
 
