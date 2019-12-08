@@ -15,4 +15,18 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+
 });
+Route::get('/all-members',['uses'=>'ApiController@allMembers']);
+
+Route::get('/all-projects',['uses'=>'ApiController@allProjects']);
+
+Route::get('/all-minutes',['uses'=>'ApiController@allMinutes']);
+
+Route::get('/all-contributions',['uses'=>'ApiController@allContributions']);
+
+Route::get('/my-contribution/{id}',['uses'=>'ApiController@myContribution']);
+
+Route::get('/last-minutes',['uses'=>'ApiController@lastMinutes']);
+
+//Route::post('login','AuthController@login');
