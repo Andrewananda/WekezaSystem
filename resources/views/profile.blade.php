@@ -50,7 +50,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="photo">Photo</label>
-                            <img src="{{ $user->photo }}" height="100px" alt="" id="blah" name="photo">
+                            <img class="img img-rounded" src="{{ $user->photo }}" height="100px" alt="" id="blah" name="photo">
                             <input onchange="readURL(this);" type="file" id="imageUpload" name="photo">
                             <p class="help-block">Update Photo.</p>
                         </div>
