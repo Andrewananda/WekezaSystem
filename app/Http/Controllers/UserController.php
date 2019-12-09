@@ -62,7 +62,7 @@ class UserController extends Controller
             $extension = $request->file('photo')->getClientOriginalExtension();
             $filenameToStore = $filename . '_' . time() . '.'  . $extension;
             $request->file('photo')->storeAs('public/member_identity',$filenameToStore);
-            $base_url = "http://localhost/WekezaCousins/storage/app/public/member_identity/";
+            $base_url = "http://wekeza.wrostdevelopers.com//WekezaCousins/storage/app/public/member_identity/";
 
             $user = User::where('id',$id)->first();
             $user->name = $request['first_name'];
@@ -108,7 +108,7 @@ class UserController extends Controller
             $extension = $request->file('photo')->getClientOriginalExtension();
             $filenameToStore = $filename . '_' . time() . '.'  . $extension;
             $request->file('photo')->storeAs('public/member_identity',$filenameToStore);
-            $base_url = "http://localhost/WekezaCousins/storage/app/public/member_identity/";
+            $base_url = "http://wekeza.wrostdevelopers.com/WekezaCousins/storage/app/public/member_identity/";
 
             $user = User::where('id',$id)->first();
             $user->name = $request['name'];
@@ -151,7 +151,7 @@ class UserController extends Controller
             $extension = $request->file('minutes')->getClientOriginalExtension();
             $filenameToStore = $filename . '_' . time() . '.'  . $extension;
             $request->file('minutes')->storeAs('public/minutes',$filenameToStore);
-            $base_url = "http://localhost/WekezaCousins/storage/app/public/minutes/";
+            $base_url = "http://wekeza.wrostdevelopers.com/WekezaCousins/storage/app/public/minutes/";
 
         }
         $minute = new Minutes();
