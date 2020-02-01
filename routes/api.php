@@ -19,6 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('/members',['uses'=>'ApiController@allMembers']);
 
+Route::get('/member/{id}',['uses'=>'ApiController@member']);
+
 Route::get('/projects',['uses'=>'ApiController@allProjects']);
 
 Route::get('/minutes',['uses'=>'ApiController@allMinutes']);
@@ -30,3 +32,5 @@ Route::get('/contribution/{id}',['uses'=>'ApiController@myContribution']);
 Route::get('/last-minutes',['uses'=>'ApiController@lastMinutes']);
 
 Route::post('login', 'Auth\LoginController@login');
+
+Route::post('register','Auth\RegisterController@register');

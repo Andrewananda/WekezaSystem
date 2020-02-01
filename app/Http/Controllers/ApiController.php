@@ -61,4 +61,12 @@ class ApiController extends Controller
             ->first();
         return response($latest,200);
     }
+    public function login(Request $request) {
+
+    }
+
+    public function member($id) {
+        $user = User::where(['id'=>$id])->first();
+        return response($user);
+    }
 }
