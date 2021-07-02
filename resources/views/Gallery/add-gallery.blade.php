@@ -9,6 +9,7 @@
         <!-- form start -->
 
         <form enctype="multipart/form-data" method="post" action="{{ route('add.gallery') }}">
+            @include('exception.error')
             @csrf
             <div class="row">
                 <div class="col-md-3">
@@ -67,6 +68,5 @@
             </div>
         </form>
     </div>
-    @include('exception.error')
 
 @endsection
