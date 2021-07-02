@@ -40,6 +40,7 @@ class UserController extends Controller
         $user->id_number = $request['id_number'];
         $user->phone = $request['phone'];
         $user->password = bcrypt($request['password']);
+        $user->email = $request->post('email');
         $user->photo = $base_url . $filenameToStore;
         $user->save();
         return redirect()->back()->with(['message'=>'Successfully added user']);

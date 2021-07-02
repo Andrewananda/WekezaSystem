@@ -15,7 +15,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
-
+//Member
 Route::get('/add-member', [
     'uses'=>'UserController@index',
     'as'=>'add.member'
@@ -36,6 +36,8 @@ Route::post('/update-member/{id}',[
    'uses'=>'UserController@updateMember',
    'as'=>'update.member'
 ]);
+
+//Permissions
 Route::get('/user-permission',[
    'uses'=>'MemberController@userPermission',
    'as'=>'member.permission'
@@ -64,6 +66,8 @@ Route::get('/permission',[
     'uses'=>'UserController@permission',
     'as'=>'register.permission'
 ]);
+
+//user profile
 Route::get('/profile',[
    'uses'=>'UserController@profile',
    'as'=>'profile'
@@ -72,6 +76,8 @@ Route::post('/update-profile/{id}',[
     'uses'=>'UserController@updateProfile',
     'as'=>'update.profile'
 ]);
+
+//contributions
 Route::get('/members',[
     'uses'=>'MemberController@members',
     'as'=>'contribute'
@@ -88,6 +94,8 @@ Route::get('/my-contribution',[
     'uses'=>'MemberController@myContributions',
     'as'=>'my.contributions'
 ]);
+
+//Projects
 Route::get('/project',function (){
    return view('Projects.add-project');
 })->name('project');
@@ -103,6 +111,8 @@ Route::get('/edit-project',[
     'uses'=>'MemberController@editProject',
     'as'=>'edit.project'
 ]);
+
+//Minutes
 Route::get('/add-minutes',[
     'uses'=>'UserController@minutes',
     'as'=>'minutes'
@@ -115,6 +125,8 @@ Route::get('/all-minutes',[
     'uses'=>'UserController@allMinutes',
     'as'=>'all.minutes'
 ]);
+
+//Gallery
 Route::get('/gallery',[
     'uses'=>'UserController@gallery',
     'as'=>'gallery'

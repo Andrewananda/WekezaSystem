@@ -43,11 +43,11 @@
     <!-- Modernizr (browser feature detection library) -->
     <script src="{{ asset('assets/login/js/vendor/modernizr.min.js')}}"></script>
 </head>
-<body>
+<body style="background: #00A6C7">
 <!-- Login Background -->
 <div >
     <!-- For best results use an image with a resolution of 2560x400 pixels (prefer a blurred image for smaller file size) -->
-    <img src="{{ asset('assets/login/img/placeholders/headers/Cousins.jpeg')}}" width="100%" height="600px" style="background-repeat: repeat" alt="Login Background" >
+{{--    <img src="{{ asset('assets/login/img/placeholders/headers/Cousins.jpeg')}}" width="100%" height="600px" style="background-repeat: repeat" alt="Login Background" >--}}
 </div>
 <!-- END Login Background -->
 
@@ -63,12 +63,13 @@
     <div class="block push-bit">
         <!-- Login Form -->
         <form action="{{ route('login') }}" method="post"  class="form-horizontal form-bordered form-control-borderless">
+            @include('exception.error')
             @csrf
             <div class="form-group">
                 <div class="col-xs-12">
                     <div class="input-group">
-                        <span class="inp ut-group-addon"><i class="gi gi-envelope"></i></span>
-                        <input type="text" id="username" name="username" class="form-control input-lg" placeholder="Username">
+                        <span class="inp ut-group-addon"><i class="gi gi-user"></i></span>
+                        <input type="text" id="email" name="email" class="form-control input-lg" placeholder="Username">
                     </div>
                 </div>
             </div>
@@ -80,10 +81,7 @@
                     </div>
                 </div>
             </div>
-
-                    <button style="margin-left: 40%; padding-bottom: 5px; margin-bottom: 15px;" class="btn btn-primary" name="submit"><i class="fa fa-unlock-alt"></i> Submit</button>
-
-
+            <button style="margin-left: 40%; padding-bottom: 5px; margin-bottom: 15px;" class="btn btn-primary" name="submit"><i class="fa fa-unlock-alt"></i> Submit</button>
         </form>
         <!-- END Login Form -->
     </div>
@@ -98,6 +96,6 @@
 
 <!-- Load and execute javascript code used only in this page -->
 <script src="{{ asset('assets/login/js/pages/login.js')}}"></script>
-<script>$(function(){ Login.init(); });</script>
+{{--<script>$(function(){ Login.init(); });</script>--}}
 </body>
 </html>
