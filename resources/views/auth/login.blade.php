@@ -62,22 +62,22 @@
     <!-- Login Block -->
     <div class="block push-bit">
         <!-- Login Form -->
-        <form action="{{ route('login') }}" method="post"  class="form-horizontal form-bordered form-control-borderless">
+        <form action="{{ route('login') }}" method="post"  class="form-horizontal form-bordered form-control-borderless col-md-12">
             @include('exception.error')
             @csrf
             <div class="form-group">
-                <div class="col-xs-12">
+                <div class="col-xs-12 col-md-12">
                     <div class="input-group">
                         <span class="inp ut-group-addon"><i class="gi gi-user"></i></span>
-                        <input type="text" id="email" name="email" class="form-control input-lg" placeholder="Username">
+                        <input type="text" id="email" name="email" class="form-control" placeholder="Username">
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-xs-12">
+                <div class="col-xs-12 col-md-12">
                     <div class="input-group">
                         <span class="inp ut-group-addon"><i class="gi gi-lock"></i></span>
-                        <input type="password" id="password" name="password" class="form-control input-lg" placeholder="password">
+                        <input type="password" id="password" width="150px" name="password" class="form-control" placeholder="password">
                     </div>
                 </div>
             </div>
