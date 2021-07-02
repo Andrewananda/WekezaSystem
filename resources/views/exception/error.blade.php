@@ -6,4 +6,4 @@
     @endif
 @if(Session::has('message'))
     <div class="alert alert-success fade">{{ Session::get('message') }}</div>
-    @endif
+@endif
