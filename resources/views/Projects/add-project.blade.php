@@ -10,6 +10,7 @@
 
         <form method="post" action="{{ route('add.project') }}">
             @csrf
+            @include('exception.error')
             <div class="row">
                 <div class="col-md-6">
                     <div class="box-body">
@@ -34,6 +35,5 @@
             </div>
         </form>
     </div>
-    @include('exception.error')
 
 @endsection
