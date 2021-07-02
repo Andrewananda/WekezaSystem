@@ -13,7 +13,7 @@ use Spatie\Permission\Models\Permission;
 class UserController extends Controller
 {
     public function index() {
-        return view('add-member');
+        return view('member.add-member');
     }
     public function registerMember(Request $request) {
 
@@ -49,11 +49,11 @@ class UserController extends Controller
     public function allMembers() {
         $users = User::all();
 
-        return view('all-members',['users'=>$users]);
+        return view('member.all-members',['users'=>$users]);
     }
     public function editMember($id) {
         $user = User::where('id',$id)->first();
-        return view('edit-member',['user'=>$user]);
+        return view('member.edit-member',['user'=>$user]);
     }
 
     public function updateMember(Request $request, $id) {
@@ -90,7 +90,7 @@ class UserController extends Controller
         return redirect()->route('login');
     }
     public function permission() {
-        return view('add-permission');
+        return view('permissions.add-permission');
     }
     public function registerPermission(Request $request) {
         $permission = $request['name'];
@@ -100,7 +100,7 @@ class UserController extends Controller
 
     public function profile() {
         $user = Auth::user();
-        return view('profile',['user'=>$user]);
+        return view('member.profile',['user'=>$user]);
     }
     public function updateProfile(Request $request,$id) {
         if ($request->hasFile('photo')) {

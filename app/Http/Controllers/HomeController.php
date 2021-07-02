@@ -31,6 +31,6 @@ class HomeController extends Controller
         $projects = Project::all();
         $gallery = Gallery::all();
         $contributions = Contribution::query()->sum('amount');
-        return view('home',['users'=>$users,'projects'=>$projects,'contributions'=>$contributions,'galleries'=>$gallery]);
+        return view('dashboard.home',['users'=>$users,'projects'=>$projects,'contributions'=>$contributions,'galleries'=>$gallery]);
     }
 }

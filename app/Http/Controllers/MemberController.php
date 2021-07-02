@@ -15,7 +15,7 @@ class MemberController extends Controller
 
     public function userPermission() {
         $users = User::all();
-        return view('add-permission-user',['users'=>$users]);
+        return view('permissions.add-permission-user',['users'=>$users]);
     }
     public function createRole() {
         $permission = Permission::all();
@@ -31,7 +31,7 @@ class MemberController extends Controller
         }
         $permissions = Permission::all();
         $perms = $user->permissions->pluck('id')->all();
-        return view('member-role',['user'=>$user, 'permissions'=>$permissions, 'perms'=>$perms]);
+        return view('member.member-role',['user'=>$user, 'permissions'=>$permissions, 'perms'=>$perms]);
     }
     public function assignPermission(Request $request,$id) {
 
@@ -46,7 +46,7 @@ class MemberController extends Controller
 
     public function allPermissions() {
         $permissions = Permission::all();
-        return view('all-permissions',['permissions'=>$permissions]);
+        return view('permissions.all-permissions',['permissions'=>$permissions]);
     }
     public function members() {
         $users = User::all();
