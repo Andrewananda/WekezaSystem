@@ -15,44 +15,33 @@ class ApiController extends Controller
         $members = User::query()
             ->orderBy('id','desc')
             ->get();
-        return response()->json([
-            "members"=>$members->toArray()
-        ],200);
+       return GeneralApiResponse::success('Members fetched successfully', 1, $members);
     }
 
     public function allProjects() {
-        $project = Project::all();
-        return response()->json([
-            "projects"=>$project->toArray()
-        ],200);
+        $projects = Project::all();
+        return GeneralApiResponse::success('projects fetched successsfully', 1, $projects);
     }
 
-    public function myContribution($id) {
-        if (Contribution::where(['id'=>$id])->exists()) {
-            $myContribution = Contribution::where(['id'=>$id])->first();
-            return response()->json([
-                "single-contribution"=>$myContribution->toArray()
-            ],200);
-        } else {
-            return response()->json([
-                "message"=>"User does not exist"
-            ],404);
+    public function myContribution(Request $request) {
+        $user_id = $request->post('user_id');
+        $user = User::where(['id'=>$user_id])->first();
+        if (!$user) {
+            return GeneralApiResponse::error('User not found', 0, null);
+        }else {
+            $user_contributions = Contribution::where(['user_id'=>$user->id])->get();
+            return GeneralApiResponse::success('Contributions fetched successfully', 1, $user_contributions);
         }
-
     }
 
     public function allContributions() {
         $contributions = Contribution::all();
-        return response()->json([
-            "all-contributions"=>$contributions->toArray()
-        ],200);
+        return GeneralApiResponse::success('All contributions fetched successfully', 1, $contributions);
     }
 
     public function allMinutes() {
         $minutes = Minutes::all();
-        return response()->json([
-            "all-minutes"=>$minutes->toArray()
-        ],200);
+        return GeneralApiResponse::success('Minutes fetched successfully', 0, $minutes);
     }
 
     public function lastMinutes() {

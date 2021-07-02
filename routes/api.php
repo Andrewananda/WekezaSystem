@@ -27,7 +27,7 @@ Route::get('/minutes',['uses'=>'ApiController@allMinutes']);
 
 Route::get('/contributions',['uses'=>'ApiController@allContributions']);
 
-Route::get('/contribution/{id}',['uses'=>'ApiController@myContribution']);
+Route::post('/contribution',['uses'=>'ApiController@myContribution']);
 
 Route::get('/last-minutes',['uses'=>'ApiController@lastMinutes']);
 
