@@ -56,7 +56,7 @@
                 <div class="col-md-6">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="username">Username</label>
+                            <label for="username">Username *</label>
                             <input type="text" name="username" class="form-control" id="username" placeholder="username">
                         </div>
                     </div>
@@ -65,7 +65,16 @@
                 <div class="col-md-6">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="photo">Photo</label>
+                            <label for="username">Email *</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Enter user email">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="photo">Photo *</label>
                             <div id="imagePreview">
                                 <img src="http://placehold.it/180" height="100px" id="blah" alt="">
                             </div>
