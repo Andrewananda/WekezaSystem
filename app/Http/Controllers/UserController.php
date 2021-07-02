@@ -66,7 +66,7 @@ class UserController extends Controller
             $base_url = "http://wekeza.wrostdevelopers.com//WekezaCousins/storage/app/public/member_identity/";
 
             $user = User::where('id',$id)->first();
-            $user->name = $request['first_name'];
+            $user->name = $request['name'];
             $user->username = $request['username'];
             $user->id_number = $request['id_number'];
             $user->phone = $request['phone'];

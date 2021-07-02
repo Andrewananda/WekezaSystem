@@ -8,13 +8,14 @@
         <!-- /.box-header -->
         <!-- form start -->
         <form enctype="multipart/form-data" method="post" action="{{ route('update.member',['id'=>$user->id]) }}">
+            @include('exception.error')
             @csrf
             <div class="row">
                 <div class="col-md-6">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="first_name">Name</label>
-                            <input type="text" name="name" value="{{ $user->name }}" class="form-control" id="first_name" placeholder="First name">
+                            <input type="text" name="name" value="{{ $user->name }}" class="form-control" id="name" placeholder="Name">
                         </div>
                     </div>
                 </div>
@@ -61,5 +62,4 @@
             </div>
         </form>
     </div>
-@include('exception.error')
 @endsection
