@@ -16,9 +16,9 @@ class GeneralApiResponse extends Controller
 
     public static function error($message, $status, $error) {
         return response()->json([
-            'message'=>$message,
+            'message'=>$error,
             'status'=>$status,
-            'data'=>$error
+            'data'=>null
         ],200);
     }
 }
