@@ -31,6 +31,6 @@ Route::post('/contribution',['uses'=>'ApiController@myContribution']);
 
 Route::get('/last-minutes',['uses'=>'ApiController@lastMinutes']);
 
-Route::post('login', 'Auth\LoginController@login');
+Route::post('login', 'ApiController@login');
 
 Route::post('register','Auth\RegisterController@register');

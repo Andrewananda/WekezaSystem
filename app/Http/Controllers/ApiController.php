@@ -8,6 +8,7 @@ use App\Project;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ApiController extends Controller
 {
@@ -51,7 +52,19 @@ class ApiController extends Controller
         return response($latest,200);
     }
     public function login(Request $request) {
-
+         $validation = Validator::make($request->all(), [
+            'username'=>'required',
+            'password'=>'required'
+         ]);
+         if ($validation->fails()) {
+             return GeneralApiResponse::error('Error logging in', 0, $validation->errors()->first());
+         }else {
+             if (Auth::attempt(['email'=>$request->post('username'), 'password'=>$request->post('password')])){
+                 return GeneralApiResponse::success('Login successfully', 1, Auth::user());
+             }else {
+                 return GeneralApiResponse::error('Error logging in', 0, null);
+             }
+         }
     }
 
     public function member($id) {
