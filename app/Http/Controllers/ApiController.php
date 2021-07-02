@@ -8,6 +8,7 @@ use App\Project;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class ApiController extends Controller
@@ -65,6 +66,33 @@ class ApiController extends Controller
                  return GeneralApiResponse::error('Error logging in', 0, null);
              }
          }
+    }
+
+    public function register(Request $request) {
+        $validation = Validator::make($request->all(), [
+           'first_name'=>'required',
+            'last_name'=>'required',
+            'email'=>'required|unique:users',
+            'password'=>'required',
+            'id_number'=>'required|unique:users',
+            'phone'=>'required|unique:users'
+        ]);
+
+        if ($validation->fails()) {
+            return GeneralApiResponse::error('Validation Error', 0, $validation->getMessageBag()->first());
+        }else {
+            $user = new User();
+            $user->name = $request->post('first_name') .' '. $request->post('last_name');
+            $user->email = $request->post('email');
+            $user->id_number = $request->post('id_number');
+            $user->username = $request->post('first_name') . '.' . $request->post('last_name');
+            $user->phone = $request->post('phone');
+            $user->password = Hash::make($request->post('password'));
+
+            $user->save();
+            $user->assignRole('member');
+            return GeneralApiResponse::success('User created successfully', 1, $user);
+        }
     }
 
     public function member($id) {

@@ -18,7 +18,7 @@ class GeneralApiResponse extends Controller
         return response()->json([
             'message'=>$message,
             'status'=>$status,
-            'data'=>$message
+            'data'=>$error
         ],200);
     }
 }

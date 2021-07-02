@@ -33,4 +33,4 @@ Route::get('/last-minutes',['uses'=>'ApiController@lastMinutes']);
 
 Route::post('login', 'ApiController@login');
 
-Route::post('register','Auth\RegisterController@register');
+Route::post('register','ApiController@register');
